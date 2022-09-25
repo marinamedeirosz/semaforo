@@ -1,13 +1,16 @@
 import { View, StyleSheet } from "react-native";
-import Luz from '../componentes/Luz'
+import Vermelho from "./luzes/Vermelho";
+import Amarelo from "./luzes/Amarelo";
+import Verde from "./luzes/Verde";
 
 
 export default function Semaforo() {
+
     return (
         <View style={styles.semaforoView}>
-            <Luz cor='red'></Luz>
-            <Luz cor='yellow'></Luz>
-            <Luz cor='green'></Luz>
+            <Vermelho></Vermelho>
+            <Amarelo></Amarelo>
+            <Verde></Verde>
         </View>
     );
 }

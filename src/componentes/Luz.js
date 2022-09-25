@@ -1,33 +1,30 @@
-import { View, StyleSheet, TouchableOpacity, Alert } from "react-native";
+import { StyleSheet, TouchableOpacity, Alert, View } from "react-native";
 import { useState } from "react";
 
 
+export default function Luz({cor, funcao}) {
+    const [estado, setEstado] = useState(false);
+    const clica = () => setEstado(true)
 
-export default function Luz({cor}) {
-    const [estado, setEstado] = useState('apagado');
-
-    const acende = () => {
-        setEstado("aceso");
-    };
-
-    const apaga = () => {
-        setEstado("apagado");
-    };
-    const muda = () => {
-        Alert.alert('apertou');
-    }
     return (
         <View>
-            <TouchableOpacity style={[styles.luzTouchableOpacity, {backgroundColor: cor}]} onClick={muda()}></TouchableOpacity>
+            <TouchableOpacity style={[styles.luzApagada, {backgroundColor: cor}, estado.isFalse ? styles.luzApagada : null]} onPress={() => clica}></TouchableOpacity>
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    luzTouchableOpacity: {
+    luzTouchable: {
         borderRadius: "50%",
         height: 100,
         width: 100,
-        margin: 10
+        margin: 10,
+    },
+    luzApagada: {
+        borderRadius: "50%",
+        height: 100,
+        width: 100,
+        margin: 10,
+        opacity: 0.5
     }
 });
